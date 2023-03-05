@@ -7,6 +7,7 @@ async function editUserForm(id) {
     const fields = ["hiddenId", "id", "username", "secondName", "age", "email", "password", "roleList"];
 
     console.log(form.elements);
+    console.log(user);
     for (const key of fields) {
         if (key === "roleList") {
             for (let option of form.elements[key].options) {
@@ -20,6 +21,7 @@ async function editUserForm(id) {
             form.elements[key].setAttribute('value', user[key]);
         }
     }
+    form.elements["hiddenId"].setAttribute('value', user["id"]);
 }
 
 async function editUser(event) {
